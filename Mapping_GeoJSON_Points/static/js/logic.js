@@ -26,8 +26,8 @@ let map = L.map('mapid', {
 L.control.layers(baseMaps).addTo(map);
 
 // Accessing the airport GeoJSON URL
-let airportData = "https://raw.githubusercontent.com/aduchini/Mapping_Earthquakes/main/majorAirports.json";
-//let airportData = "majorAirports.json";
+//let airportData = "https://raw.githubusercontent.com/aduchini/Mapping_Earthquakes/main/majorAirports.json";
+let airportData = "majorAirports.json";
 // Grabbing our GeoJSON data.
 d3.json(airportData).then(function(data) {
   console.log(data);
@@ -71,9 +71,9 @@ L.geoJSON(sanFranAirport, {
   }
 }).addTo(map);
 
-// L.geoJSON(airportData, {
-//   onEachFeature: function(feature, layer) {
-//     console.log(layer);
-//     layer.bindPopup();
-//    }
-// });
+L.geoJSON(airportData, {
+  onEachFeature: function(feature, layer) {
+    console.log(layer);
+    layer.bindPopup();
+   }
+});
